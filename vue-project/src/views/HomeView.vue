@@ -81,13 +81,23 @@ const Main = [
    },
 ]
 
-console.log,{Main}
+// Main.forEach(Guns);
+// Sidearm.forEach(Pistol);
+
+
+// function addPrice () {
+//    `<p>${Guns.price} + ${Pistol.price}</p>`
+// }
+
+
+console.log(Main)
 </script>
 
 <template>
   <main>
+    <input main.number="Price" />
     <h1>VALORANT LOADOUT</h1>
-    <button>take vandal price</button>
+    <button @click = "addPrice">take vandal price</button>
     <button>take side arm price</button>
     <button>take armor price</button>
     <TheWelcome />
