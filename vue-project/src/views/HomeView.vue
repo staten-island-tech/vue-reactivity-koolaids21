@@ -80,6 +80,14 @@ const Main = [
     Name: "Odin",
     Price: "3200",
   },
+  {
+    Name: "Light Armor",
+    Price: "400",
+  },
+  {
+    Name: "Heavy Armor",
+    Price: "1000",
+  },
 ];
 
 const cart = ref([]);
@@ -88,21 +96,24 @@ const additem = (item) => {
   cart.value.push(item);
 };
 
-const num1 = ref(0);
-const num2 = ref(0);
-
-const addingprices = computed(() => {
-  return parseInt(num1.value) + parseInt(num2.value);
+const addtotalCost = computed(() => {
+  return cart.value.reduce((total, item) => total + parseInt(item.Price), 0);
 });
 </script>
 
 <template>
-  <main>
-    <div id="app">
-      <h1>adding thing</h1>
-      <input type="number" v-model="num1" /> +
-      <input type="number" v-model="num2" /> =
-      <span>{{ sum }}</span>
+  <div>
+    <h1>Valorant Shop</h1>
+    <div v-for="(item, index) in Main" :key="index">
+      <p>{{ item.Name }}- ${{ item.Price }}</p>
+      <button @click="additem(item)">Add to Cart</button>
     </div>
-  </main>
+    <h2>Cart</h2>
+    <li v-for="(cartItem, index) in cart" :key="index">
+      {{ cartItem.Name }}-${{ cartItem.Price }}
+    </li>
+    <p>Total Cost:${{ addtotalCost }}</p>
+  </div>
 </template>
+
+<style></style>
