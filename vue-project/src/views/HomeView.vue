@@ -102,18 +102,57 @@ const addtotalCost = computed(() => {
 </script>
 
 <template>
-  <div>
-    <h1>Valorant Shop</h1>
-    <div v-for="(item, index) in Main" :key="index">
-      <p>{{ item.Name }}- ${{ item.Price }}</p>
-      <button @click="additem(item)">Add to Cart</button>
+  <div class="container">
+    <div class="list">
+      <h1 class="title">Valorant Shop</h1>
+      <div v-for="(item, index) in Main" :key="index" class="card">
+        <p>{{ item.Name }}- ${{ item.Price }}</p>
+        <button @click="additem(item)">Add to Cart</button>
+      </div>
     </div>
-    <h2>Cart</h2>
-    <li v-for="(cartItem, index) in cart" :key="index">
-      {{ cartItem.Name }}-${{ cartItem.Price }}
-    </li>
-    <p>Total Cost:${{ addtotalCost }}</p>
+    <div class="Shoppingcart">
+      <h2>ShoppingCart</h2>
+      <li v-for="(cartItem, index) in cart" :key="index">
+        {{ cartItem.Name }}-${{ cartItem.Price }}
+      </li>
+      <p>Total Cost:${{ addtotalCost }}</p>
+    </div>
   </div>
 </template>
 
-<style></style>
+<style>
+body {
+  background-image: url("https://www.pixground.com/wp-content/uploads/2023/08/Valorant-Agents-4K-Wallpaper-jpg.webp");
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: 50%;
+  padding: 10px;
+}
+
+.card {
+  margin: 2.5rem 0;
+  height: 100px;
+  width: 2vw;
+  background-color: rgba(65, 65, 150, 0.6);
+  border-radius: 12px;
+}
+.Shoppingcart {
+  width: 30%;
+  margin-right: 50%;
+}
+body {
+  width: 80%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+.title {
+  font-size: 3rem;
+  text-align: center;
+}
+</style>
