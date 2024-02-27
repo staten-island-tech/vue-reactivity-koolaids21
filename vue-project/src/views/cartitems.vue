@@ -27,13 +27,6 @@ const cardClass = ref("card");
         <button @click="additem(item)">Add to Cart</button>
       </div>
     </div>
-    <div :class="ShoppingCartClass">
-      <h2>ShoppingCart</h2>
-      <li v-for="(cartItem, index) in cart" :key="index">
-        {{ cartItem.Name }}-${{ cartItem.Price }}
-      </li>
-      <p>Total Cost:${{ addtotalCost }}</p>
-    </div>
   </div>
 </template>
 
