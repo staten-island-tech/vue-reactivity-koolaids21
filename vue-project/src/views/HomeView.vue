@@ -19,9 +19,9 @@ const cardClass = ref("card");
 </script>
 
 <template>
+      <h1 :class="titleClass">Valorant Shop</h1>
   <div :class="containerClass">
     <div :class="ListClass">
-      <h1 :class="titleClass">Valorant Shop</h1>
       <div v-for="(item, index) in Main" :key="index" :class="cardClass">
         <p>{{ item.Name }}- ${{ item.Price }}</p>
         <button @click="additem(item)">Add to Cart</button>
@@ -42,25 +42,26 @@ const cardClass = ref("card");
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-right: 50%;
   padding: 10px;
 }
 
 .card {
-  margin: 2.5rem 0;
   height: 100px;
-  width: 2vw;
+  width: 15vw;
   background-color: rgba(65, 65, 150, 0.6);
   border-radius: 12px;
+  margin-top: 20px;
+  text-align: center;
+  margin-right: 100px;
 }
 .Shoppingcart {
   width: 30%;
-  margin-right: 50%;
 }
 
 .container {
   display: flex;
   justify-content: space-around;
+  flex-direction: row;
 }
 .title {
   font-size: 3rem;
